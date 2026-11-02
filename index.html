@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SW1</title>
+<meta name="description" content="SW1 S.A.S. is a private investment holding company based in Luxembourg.">
+<style>
+  :root{
+    --bg:#f3f2ee;
+    --fg:#161616;
+    --fg-2:#6d6c68;
+    --line:#d6d4ce;
+    --ink:#161616;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:17px}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s}
+  a:hover{border-color:var(--fg)}
+  .page{max-width:1160px;margin:0 auto;padding:0 28px;width:100%}
+
+  header{padding:30px 0;position:relative;z-index:2}
+  header .page{display:flex;justify-content:space-between;align-items:baseline}
+  .wordmark{font-weight:600;letter-spacing:.02em;border:0}
+  .place{color:var(--fg-2);font-size:.9rem}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden}
+  .hero .page{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:78vh;padding-top:40px;padding-bottom:60px}
+  .hero h1{font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.2;letter-spacing:-.015em;max-width:19em}
+  .hero .sub{margin-top:28px;color:var(--fg-2);max-width:34em}
+  .fig{width:100%;height:auto;display:block}
+  .fig .rot{transform-origin:260px 260px;animation:spin 140s linear infinite}
+  .fig .rot2{transform-origin:260px 260px;animation:spin 220s linear infinite reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* field band */
+  .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;line-height:0}
+  .band canvas{width:100%;height:160px;display:block}
+
+  /* rows */
+  .row{display:grid;grid-template-columns:220px 1fr 220px;gap:28px;padding:56px 0;border-top:1px solid var(--line)}
+  .row:first-of-type{border-top:0}
+  .row h2{font-size:.9rem;font-weight:400;color:var(--fg-2);padding-top:3px}
+  .row .body{max-width:600px}
+  .row p + p{margin-top:1em}
+  .row .mark{justify-self:end;align-self:start}
+  .mark svg{width:120px;height:120px;display:block}
+  ul{list-style:none}
+  li{padding:10px 0;border-bottom:1px solid var(--line)}
+  li:first-child{border-top:1px solid var(--line)}
+
+  address{font-style:normal}
+  .row address p + p{margin-top:0}
+
+  footer{padding:30px 0 40px;border-top:1px solid var(--line);font-size:.8rem;color:var(--fg-2)}
+  footer .page{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    html{font-size:16px}
+    .hero .page{grid-template-columns:1fr;min-height:0;padding-bottom:20px}
+    .fig{max-width:360px;margin:10px auto 0}
+    .row{grid-template-columns:1fr;gap:10px;padding:36px 0}
+    .row .mark{display:none}
+    .band canvas{height:110px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="page">
+    <a class="wordmark" href="/">SW1</a>
+    <span class="place">Luxembourg</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="page">
+    <div>
+      <h1>SW1 is a private investment holding. We acquire and hold interests in companies, mainly in financial services and technology, and work with their management over the long term.</h1>
+      <p class="sub">Own capital. No fund, no fixed term, no obligation to exit.</p>
+    </div>
+
+    <!-- concentric figure -->
+    <svg class="fig" viewBox="0 0 520 520" fill="none" stroke="var(--ink)" stroke-width="1" aria-hidden="true">
+      <g opacity=".9">
+        <circle cx="260" cy="260" r="40"/>
+        <circle cx="260" cy="260" r="80"/>
+        <circle cx="260" cy="260" r="120"/>
+        <circle cx="260" cy="260" r="160"/>
+        <circle cx="260" cy="260" r="200"/>
+        <circle cx="260" cy="260" r="240"/>
+      </g>
+      <g class="rot" opacity=".9">
+        <path d="M260 20 A240 240 0 0 1 500 260" stroke-width="3"/>
+        <line x1="260" y1="260" x2="260" y2="20"/>
+      </g>
+      <g class="rot2" opacity=".6">
+        <path d="M100 260 A160 160 0 0 1 260 100" stroke-width="2" stroke-dasharray="2 6"/>
+      </g>
+      <line x1="20" y1="260" x2="500" y2="260" opacity=".35"/>
+      <line x1="260" y1="20" x2="260" y2="500" opacity=".35"/>
+      <circle cx="260" cy="260" r="3" fill="var(--ink)"/>
+    </svg>
+  </div>
+</section>
+
+<div class="band"><canvas id="field"></canvas></div>
+
+<main>
+  <div class="page">
+
+    <section class="row">
+      <h2>About</h2>
+      <div class="body">
+        <p>We invest our own capital. There is no fund, no fixed term and no obligation to exit. This lets us take positions that need time: regulated businesses, carve-outs, situations where ownership has to change hands carefully.</p>
+        <p>We prefer a small number of holdings we understand well to a large number we do not. In most cases we hold a controlling or significant stake and sit on the board.</p>
+      </div>
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="var(--ink)" stroke-width="1">
+          <rect x="10" y="10" width="100" height="100"/>
+          <rect x="30" y="30" width="60" height="60"/>
+          <rect x="50" y="50" width="20" height="20" fill="var(--ink)"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>What we look for</h2>
+      <div class="body">
+        <ul>
+          <li>Established businesses in financial services, technology and adjacent sectors</li>
+          <li>Operations in the European Union, or a clear path to it</li>
+          <li>Founders or shareholders who want a long-term partner rather than a quick sale</li>
+          <li>Transactions where structure matters: staged payments, options, regulatory approvals</li>
+        </ul>
+      </div>
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="var(--ink)" stroke-width="1">
+          <line x1="10" y1="110" x2="110" y2="110"/>
+          <line x1="10" y1="110" x2="10" y2="10"/>
+          <polyline points="10,95 35,80 60,84 85,50 110,30"/>
+          <circle cx="110" cy="30" r="3" fill="var(--ink)"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>How we work</h2>
+      <div class="body">
+        <p>Most of our transactions are negotiated directly with founders and existing shareholders. We are quick on terms and slow on diligence.</p>
+        <p>After closing we stay involved: board seats, reserved matters, audited reporting, follow-on capital when it is warranted. We do not run the companies we own, and we do not pretend to.</p>
+      </div>
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="var(--ink)" stroke-width="1">
+          <circle cx="35" cy="60" r="25"/>
+          <circle cx="85" cy="60" r="25"/>
+          <path d="M60 38 A25 25 0 0 1 60 82 A25 25 0 0 1 60 38Z" fill="var(--ink)"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="row">
+      <h2>Contact</h2>
+      <div class="body">
+        <address>
+          <p>SW1 S.A.S.</p>
+          <p>3 Boulevard Royal</p>
+          <p>L-2449 Luxembourg</p>
+          <p>Grand Duchy of Luxembourg</p>
+        </address>
+      </div>
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 120" fill="none" stroke="var(--ink)" stroke-width="1">
+          <circle cx="60" cy="60" r="50"/>
+          <circle cx="60" cy="60" r="3" fill="var(--ink)"/>
+          <line x1="60" y1="10" x2="60" y2="20"/><line x1="60" y1="100" x2="60" y2="110"/>
+          <line x1="10" y1="60" x2="20" y2="60"/><line x1="100" y1="60" x2="110" y2="60"/>
+        </svg>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="page">
+    <span>SW1 S.A.S. · RCS Luxembourg B280150</span>
+    <span>© <span id="y"></span></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// line field: slow-moving set of fine lines, drawn with canvas
+(function(){
+  const c=document.getElementById('field'),ctx=c.getContext('2d');
+  let w,h,t=0,dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();addEventListener('resize',size);
+  const ink=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#161616';
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    ctx.strokeStyle=ink;ctx.lineWidth=1;
+    const n=14;
+    for(let i=0;i<n;i++){
+      const y0=(i+.5)*h/n;
+      ctx.globalAlpha=.18+.5*(i/n);
+      ctx.beginPath();
+      for(let x=0;x<=w;x+=6){
+        const y=y0+Math.sin(x*.004+t*.6+i*.35)*10*Math.sin(t*.25+i)+Math.sin(x*.011-t*.3)*4;
+        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+    t+=.004;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
